@@ -4,11 +4,12 @@ from FileStream.config import Telegram
 class LANG(object):
 
     START_TEXT = """
-<b>Hai, saya adalah PikaStream_bot.</b>
+<b>Hai, saya adalah PikaStreambot.</b>\n\n
+<i>Saya bisa membuat stream link dari file Telegram dan bisa dishare ataupun stream di berbagai platform.</i>
 """
 
     HELP_TEXT = """
-<b>Kirimkan file atau video dan dapatkan link stream dari file/video anda """
+<b>- Cukup kirimkan file atau video di private message dan dapatkan link stream dari file/video anda\n"""
 
     ABOUT_TEXT = """
 <b>Nama bot : {}</b>\n
