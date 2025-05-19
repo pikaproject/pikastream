@@ -99,9 +99,9 @@ def get_name(media_msg: Message | FileId) -> str:
     return file_name
 
 
-def get_file_info(message):
+def get_file_info(message, reply=False):
     media = get_media_from_message(message)
-    if message.chat.type == ChatType.PRIVATE:
+    if message.chat.type == ChatType.PRIVATE or reply:
         user_idx = message.from_user.id
     else:
         user_idx = message.chat.id

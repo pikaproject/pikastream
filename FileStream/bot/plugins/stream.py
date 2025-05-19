@@ -84,7 +84,7 @@ async def stream_reply_handler(bot: Client, message: Message):
         )
 
     try:
-        inserted_id = await db.add_file(get_file_info(replied_msg))
+        inserted_id = await db.add_file(get_file_info(replied_msg, reply=True))
         await get_file_ids(False, inserted_id, multi_clients, replied_msg)
         reply_markup, stream_text = await gen_link(_id=inserted_id)
         await message.reply_text(
