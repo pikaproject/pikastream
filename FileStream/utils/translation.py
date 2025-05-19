@@ -9,12 +9,13 @@ class LANG(object):
 """
 
     HELP_TEXT = """
-<b>- Cukup kirimkan file atau video di private message dan dapatkan link stream dari file/video anda\n"""
+<b>- Jika di private, cukup kirimkan file atau video dan dapatkan link stream dari file/video anda</b>\n
+<b>- Jika di group, cukup reply file/video dengan perintah /stream dan dapatkan link stream dari file/video anda</b>\n"""
 
     ABOUT_TEXT = """
 <b>Nama bot : {}</b>\n
 <b>Versi : {}</b>
-<b>Update : 06-January-2024</b>
+<b>Update : 19-Mei-2025</b>
 <b>Maintainer : <a href='https://telegram.me/pikadotchu'>𝑷𝒊𝒌𝒂𝒄𝒉𝒖</a></b>\n
 """
 
