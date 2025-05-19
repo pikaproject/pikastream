@@ -20,11 +20,11 @@ class LANG(object):
 """
 
     STREAM_TEXT = """
-<b>📂 Nama File :</b> <b>{}</b>\n
+<b>📂 Nama File :</b> <code>{}</code>\n
 <b>📦 Ukuran :</b> <code>{}</code>\n"""
 
     STREAM_TEXT_X = """
-<b>📂 Nama File :</b> <b>{}</b>\n
+<b>📂 Nama File :</b> <code>{}</code>\n
 <b>📦 Ukuran :</b> <code>{}</code>\n"""
 
 
