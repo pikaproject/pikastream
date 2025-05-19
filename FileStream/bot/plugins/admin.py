@@ -38,7 +38,7 @@ async def sts(b, m: Message):
             if not str(id).startswith('-100'):
                 await b.send_message(
                     chat_id=id,
-                    text="**Your Banned to Use The Bot**",
+                    text="**Anda sudah diban dari bot ini**",
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True
                 )
@@ -58,7 +58,7 @@ async def sts(b, m: Message):
             if not str(id).startswith('-100'):
                 await b.send_message(
                     chat_id=id,
-                    text="**Your Unbanned now Use can use The Bot**",
+                    text="**Anda sudah diunban dari bot ini**",
                     parse_mode=ParseMode.MARKDOWN,
                     disable_web_page_preview=True
                 )

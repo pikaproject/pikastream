@@ -14,7 +14,7 @@ import asyncio
 
 db = Database(Telegram.DATABASE_URL, Telegram.SESSION_NAME)
 
-@FileStream.on_message(filters.command('start') & filters.private)
+@FileStream.on_message(filters.command('start'))
 async def start(bot: Client, message: Message):
     if not await verify_user(bot, message):
         return
@@ -81,7 +81,7 @@ async def start(bot: Client, message: Message):
         else:
             await message.reply_text(f"**Perintah Salah**")
 
-@FileStream.on_message(filters.private & filters.command(["about"]))
+@FileStream.on_message(filters.command(["about"]))
 async def start(bot, message):
     if not await verify_user(bot, message):
         return
@@ -99,7 +99,7 @@ async def start(bot, message):
             reply_markup=BUTTON.ABOUT_BUTTONS
         )
 
-@FileStream.on_message((filters.command('help')) & filters.private)
+@FileStream.on_message((filters.command('help')))
 async def help_handler(bot, message):
     if not await verify_user(bot, message):
         return
@@ -120,7 +120,7 @@ async def help_handler(bot, message):
 
 # ---------------------------------------------------------------------------------------------------
 
-@FileStream.on_message(filters.command('files') & filters.private)
+@FileStream.on_message(filters.command('files'))
 async def my_files(bot: Client, message: Message):
     if not await verify_user(bot, message):
         return
