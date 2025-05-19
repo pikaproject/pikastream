@@ -52,9 +52,9 @@ async def start(bot: Client, message: Message):
                     )
 
             except FIleNotFound as e:
-                await message.reply_text("File Not Found")
+                await message.reply_text("File tidak ditemukan")
             except Exception as e:
-                await message.reply_text("Something Went Wrong")
+                await message.reply_text("Terjadi kesalahan :(")
                 logging.error(e)
 
         elif "file_" in message.text:
@@ -73,13 +73,13 @@ async def start(bot: Client, message: Message):
                         pass
 
             except FIleNotFound as e:
-                await message.reply_text("**File Not Found**")
+                await message.reply_text("**File tidak ditemukan**")
             except Exception as e:
-                await message.reply_text("Something Went Wrong")
+                await message.reply_text("Terjadi kesalahan")
                 logging.error(e)
 
         else:
-            await message.reply_text(f"**Invalid Command**")
+            await message.reply_text(f"**Perintah Salah**")
 
 @FileStream.on_message(filters.private & filters.command(["about"]))
 async def start(bot, message):
@@ -139,9 +139,9 @@ async def my_files(bot: Client, message: Message):
         )
     if not file_list:
         file_list.append(
-            [InlineKeyboardButton("ᴇᴍᴘᴛʏ", callback_data="N/A")],
+            [InlineKeyboardButton("Kosong", callback_data="N/A")],
         )
-    file_list.append([InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")])
+    file_list.append([InlineKeyboardButton("Tutup", callback_data="close")])
     await message.reply_photo(photo=Telegram.FILE_PIC,
                               caption="Total files: {}".format(total_files),
                               reply_markup=InlineKeyboardMarkup(file_list))
