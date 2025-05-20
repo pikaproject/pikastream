@@ -9,68 +9,15 @@
     <link rel="shortcut icon" href="https://i.ibb.co/Hh4kF2b/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/proavipatil/data@main/fs/src/style.css">
-    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/proavipatil/data@main/fs/src/plyr.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom style untuk video player dan container */
-        .video-player-container {
-            width: 100%;
-            max-width: 900px; /* Lebar maksimal player */
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Style untuk Video.js player */
-        .video-js {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
-        }
-        
-        /* Style untuk video element di dalam Video.js */
-        .video-js video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Custom style untuk subtitle upload */
-        .subtitle-controls {
-            width: 100%;
-            max-width: 900px;
-            margin: 15px auto;
-            padding: 10px;
-            background: rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        .subtitle-list {
-            margin-top: 10px;
-        }
-        .subtitle-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px;
-            margin: 5px 0;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .video-player-container {
-                padding: 10px;
-            }
-        }
-    </style>
+
 </head>
 
 <body>
-    <!-- Navbar (tetap sama) -->
     <nav>
         <div class="nleft">
             <a href="#">
@@ -79,6 +26,7 @@
         </div>
         <div class="nryt">
             <a class="home-btn magnet" href="#main" onclick="toggleWidthnav(this)">HOME</a>
+
             <a href="#abtus" class="about-btn magnet" onclick="toggleWidthnav(this)">ABOUT</a>
         </div>
     </nav>
@@ -93,33 +41,9 @@
     <div class="outer">
         <div class="inner">
             <div class="main" id="main">
-                <!-- Tambahkan container untuk video player -->
-                <div class="video-player-container">
-                    <!-- Ganti player dengan Video.js -->
-                    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" 
-                           controls preload="auto" data-setup='{"fluid": true, "aspectRatio": "16:9"}'>
-                        <source src="{{file_url}}" type="video/mp4">
-                        <!-- Track untuk subtitle default (jika ada) -->
-                        <track kind="subtitles" src="" label="Default" default>
-                        <p class="vjs-no-js">
-                            To view this video please enable JavaScript, and consider upgrading to a
-                            web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-                        </p>
-                    </video>
-                </div>
-                
-                <!-- Kontrol untuk upload subtitle -->
-                <div class="subtitle-controls">
-                    <h4>Subtitle Options</h4>
-                    <input type="file" id="subtitle-upload" accept=".vtt,.srt" style="display: none;">
-                    <button class="magnet" onclick="document.getElementById('subtitle-upload').click()">
-                        Upload Subtitle (VTT/SRT)
-                    </button>
-                    <div class="subtitle-list" id="subtitle-list">
-                        <!-- Daftar subtitle akan muncul di sini -->
-                    </div>
-                </div>
-
+                <video id="player" class="player" src="{{file_url}}" type="video/mp4" playsinline controls
+                    width="100%"></video>
+                <div class="player"></div>
                 <div class="file-name">
                     <h4 style="display: inline;">File Name: </h4>
                     <p style="display: inline;" id="myDiv">{{file_name}}</p><br>
@@ -140,14 +64,43 @@
                         <img src="https://i.ibb.co/41WvtQ3/mx.png" alt="">tonton di MX PLAYER
                     </button>
                 </div>
+
             </div>
-            
-            <!-- Bagian about tetap sama -->
             <div class="abt">
-                <!-- ... -->
+                <div class="about">
+                    <div class="about-dets">
+
+                        <div class="abt-sec" id="abtus" style="padding: 160px 30px;">
+                            <h1 style="text-align: center;">Selamat datang di <Span>PIKA STREAM</Span> BOT</h1>
+                            <p style="text-align: center; line-height: 2;word-spacing: 2px;  letter-spacing: 0.8px;">
+                                Ini adalah bot sederhana untuk membuat stream link dari file Telegram dan bisa dishare ataupun stream di berbagai platform.
+                            </p>
+                        </div>
+
+                        <div class="abt-sec" id="channels">
+                            <h1>IKUTI CHANNEL <span>TELEGRAM</span> DIBAWAH UNTUK UPDATE TENTANG BOT</h1>
+                            <div class="links chnl-link">
+                                <a class="magnet" href="https://t.me/pikachukocak3">
+                                    <button>Pikachu Support</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="abt-sec" id="contact">
+                            <p style="text-align: center;">Jika ada bug atau saran silahkan hubungi saya</p>
+                            <div class="links contact">
+                                <a href="https://t.me/pikadotchu">
+                                    <button>CONTACT</button>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
         <footer>
+
             <center>
                 <div class="copyright">
                     <h5 class="text-center">Copyright © 2025 <a href="https://github.com/pikadotchu"><span
@@ -157,200 +110,23 @@
             </center>
         </footer>
     </div>
-
-    <!-- Script Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
-    <!-- Video.js -->
-    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-    <!-- Tambahkan library untuk konversi SRT ke WebVTT -->
-    <script src="https://cdn.jsdelivr.net/npm/srt-webvtt@1.3.0/dist/srt-webvtt.min.js"></script>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const uncopyableElement = document.querySelector(".uncopyable");
-            if (uncopyableElement) {
-                uncopyableElement.addEventListener("selectstart", function (event) {
-                    event.preventDefault();
-                });
-            }
-            
-            // Inisialisasi player dengan opsi tambahan
-            const player = videojs('my-video', {
-                controls: true,
-                autoplay: false,
-                preload: 'auto',
-                fluid: true,
-                responsive: true,
-                aspectRatio: '16:9',
-                playbackRates: [0.5, 1, 1.5, 2],
-                controlBar: {
-                    children: [
-                        'playToggle',
-                        'volumePanel',
-                        'currentTimeDisplay',
-                        'timeDivider',
-                        'durationDisplay',
-                        'progressControl',
-                        'liveDisplay',
-                        'remainingTimeDisplay',
-                        'customControlSpacer',
-                        'playbackRateMenuButton',
-                        'chaptersButton',
-                        'descriptionsButton',
-                        'subsCapsButton',
-                        'audioTrackButton',
-                        'fullscreenToggle'
-                    ]
-                }
-            }, function() {
-                // Callback ketika player siap
-                console.log('Player is ready');
-            });
-            
-            // Variabel untuk menyimpan subtitle
-            let subtitles = [];
-            
-            // Handle upload subtitle
-            document.getElementById('subtitle-upload').addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (!file) return;
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const content = e.target.result;
-                    const fileName = file.name;
-                    const fileExt = fileName.split('.').pop().toLowerCase();
-                    
-                    // Jika format SRT, konversi ke WebVTT
-                    if (fileExt === 'srt') {
-                        const vttContent = SRT2WebVTT(content);
-                        addSubtitleToPlayer(vttContent, fileName.replace('.srt', '.vtt'));
-                    } else {
-                        // Format VTT langsung digunakan
-                        addSubtitleToPlayer(content, fileName);
-                    }
-                };
-                
-                if (file.name.endsWith('.srt')) {
-                    reader.readAsText(file);
-                } else {
-                    reader.readAsText(file);
-                }
-            });
-            
-            // Fungsi untuk menambahkan subtitle ke player
-            function addSubtitleToPlayer(content, fileName) {
-                const blob = new Blob([content], { type: 'text/vtt' });
-                const url = URL.createObjectURL(blob);
-                
-                // Buat label dari nama file
-                const label = fileName.replace('.vtt', '').replace('.srt', '');
-                
-                // Tambahkan track ke player
-                player.addRemoteTextTrack({
-                    kind: 'subtitles',
-                    src: url,
-                    srclang: 'en',
-                    label: label,
-                    default: false
-                }, false);
-                
-                // Simpan subtitle ke array
-                subtitles.push({
-                    id: 'subtitle-' + subtitles.length,
-                    url: url,
-                    label: label
-                });
-                
-                // Update daftar subtitle
-                updateSubtitleList();
-            }
-            
-            // Fungsi untuk update daftar subtitle
-            function updateSubtitleList() {
-                const list = document.getElementById('subtitle-list');
-                list.innerHTML = '';
-                
-                if (subtitles.length === 0) {
-                    list.innerHTML = '<p>No subtitles loaded</p>';
-                    return;
-                }
-                
-                subtitles.forEach((sub, index) => {
-                    const item = document.createElement('div');
-                    item.className = 'subtitle-item';
-                    item.innerHTML = `
-                        <span>${sub.label}</span>
-                        <div>
-                            <button class="magnet" onclick="activateSubtitle(${index})">Aktifkan</button>
-                            <button class="magnet" onclick="removeSubtitle(${index})">Hapus</button>
-                        </div>
-                    `;
-                    list.appendChild(item);
-                });
-            }
-            
-            // Fungsi global untuk aktivasi subtitle
-            window.activateSubtitle = function(index) {
-                const tracks = player.remoteTextTracks();
-                for (let i = 0; i < tracks.length; i++) {
-                    tracks[i].mode = i === index ? 'showing' : 'disabled';
-                }
-            };
-            
-            // Fungsi global untuk menghapus subtitle
-            window.removeSubtitle = function(index) {
-                if (index >= 0 && index < subtitles.length) {
-                    // Hapus track dari player
-                    const tracks = player.remoteTextTracks();
-                    if (tracks[index]) {
-                        player.removeRemoteTextTrack(tracks[index]);
-                    }
-                    
-                    // Hapus dari array
-                    subtitles.splice(index, 1);
-                    
-                    // Update daftar
-                    updateSubtitleList();
-                }
-            };
-        });
-        
-        // Fungsi untuk konversi SRT ke WebVTT
-        function SRT2WebVTT(data) {
-            // Hapus \r dan bagi menjadi array
-            let srt = data.replace(/\r+/g, '');
-            srt = srt.split('\n');
-            
-            let vtt = 'WEBVTT\n\n';
-            
-            for (let i = 0; i < srt.length; i++) {
-                // Cari nomor cue
-                if (/^\d+$/.test(srt[i])) {
-                    // Cari timeline (baris berikutnya)
-                    if (/^.+?\-\-.+?\-\-/.test(srt[i+1])) {
-                        vtt += srt[i+1].replace(',', '.') + '\n';
-                        i += 2;
-                    }
-                    
-                    // Tambahkan teks sampai baris kosong
-                    while (srt[i] && srt[i] !== '') {
-                        vtt += srt[i] + '\n';
-                        i++;
-                    }
-                    vtt += '\n';
-                }
-            }
-            
-            return vtt;
-        }
-    </script>
-    
-    <!-- Script lainnya tetap sama -->
-    <script src="https://proavipatil.github.io/data/fs/src/script.js"></script>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const uncopyableElement = document.querySelector(".uncopyable");
+
+        uncopyableElement.addEventListener("selectstart", function (event) {
+            event.preventDefault();
+        });
+    });
+</script>
+<script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
+<script src="https://proavipatil.github.io/data/fs/src/script.js"></script>
+
 </html>
